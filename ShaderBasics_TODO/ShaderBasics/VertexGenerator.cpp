@@ -16,7 +16,7 @@ Zadanie 1 (1 pkt):
 	  Ustawiæ odpowiednie wartoœci: size (iloœæ wierzcho³ków), dim - wymiarowoœæ wierzcho³ka, count - size*dim
 */
 	float	minX = -1, maxX = 3, deltaX = 1, 
-			minZ = -1, maxZ = 4, deltaZ = 1;
+			minZ = -2, maxZ = 4, deltaZ = 1;
 	int p = 0;
 
 	int Nx = (maxX - minX) / deltaX + 1;	//iloœæ wierzcho³ków na wspó³rzêdnej x
@@ -39,8 +39,8 @@ Zadanie 1 (1 pkt):
 				vertices[p + 0] = x;
 				vertices[p + 1] = 0;
 				vertices[p + 2] = z;
-				vertices[p + 3] = 1;
-				vertices[p + 4] = 0;
+				vertices[p + 3] = 0;
+				vertices[p + 4] = 1;
 				vertices[p + 5] = 0;
 				vertices[p + 6] = 1;
 

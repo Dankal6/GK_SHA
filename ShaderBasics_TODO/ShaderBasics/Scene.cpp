@@ -44,8 +44,8 @@ void Scene::init()
 
 		*/
 	
-	//program.addMatrix4x4f(glm::perspective(, "proj");
-	//program.addMatrix4x4f(glm::lookAt(), "view");
+	//program.addMatrix4x4f(glm::perspective(), "proj");
+	//program.addMatrix4x4f(glm::lookAt(eye), "view");
 	program.addMatrix4x4f(glm::ortho(-4.0f, 4.0f,-4.0f, 4.0f, -4.0f, 4.0f), "proj");
 }
 
@@ -53,7 +53,6 @@ void Scene::frame(void)
 {
 	updateTimers();
 	
-
 	/*
 		Zadanie 4b.(0.5pkt) Dodaæ animacjê kamery (zmiana parametrów funkcji lookAt() w zale¿noœci od czasu).
 		 Czas dostêpny jest poprzez zmienne prywatne - dT - od ostatniej klatki, wT - od pocz¹tku.
