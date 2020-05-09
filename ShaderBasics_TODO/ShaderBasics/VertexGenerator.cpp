@@ -15,7 +15,8 @@ Zadanie 1 (1 pkt):
 	  y ustawiæ na 0. Wierzcho³ek ma mieæ dwa atrybuty: pozycjê (3D) i kolor (RGBA).
 	  Ustawiæ odpowiednie wartoœci: size (iloœæ wierzcho³ków), dim - wymiarowoœæ wierzcho³ka, count - size*dim
 */
-	float minX = 0, maxX = 3, deltaX = 1, minZ = 0, maxZ = 2, deltaZ = 1;
+	float	minX = -1, maxX = 3, deltaX = 1, 
+			minZ = -1, maxZ = 4, deltaZ = 1;
 	int p = 0;
 
 	int Nx = (maxX - minX) / deltaX + 1;	//iloœæ wierzcho³ków na wspó³rzêdnej x
@@ -35,13 +36,13 @@ Zadanie 1 (1 pkt):
 		for (float x = minX; x <= maxX; x += deltaX)
 		{
 			{
-				vertices[p + 21] = x;
-				vertices[p + 22] = 0;
-				vertices[p + 23] = z;
-				vertices[p + 24] = 1;
-				vertices[p + 25] = 1;
-				vertices[p + 26] = 1;
-				vertices[p + 27] = 1;
+				vertices[p + 0] = x;
+				vertices[p + 1] = 0;
+				vertices[p + 2] = z;
+				vertices[p + 3] = 1;
+				vertices[p + 4] = 0;
+				vertices[p + 5] = 0;
+				vertices[p + 6] = 1;
 
 				p += 7;
 			}
@@ -50,6 +51,10 @@ Zadanie 1 (1 pkt):
 
 	//glDrawArrays(GL_LINES)
 	//glBufferData();
+	/*for (int i = 0; i < 84; i++)
+	{
+		std::cout << vertices[i] << std::endl;
+	}*/
 	return vertices;
 }
 

@@ -44,11 +44,9 @@ void Scene::init()
 
 		*/
 	
-	/*program.addMatrix4x4f(glm::perspective(), "proj");
-	program.addMatrix4x4f(glm::lookAt(), "view");*/
+	//program.addMatrix4x4f(glm::perspective(, "proj");
+	//program.addMatrix4x4f(glm::lookAt(), "view");
 	program.addMatrix4x4f(glm::ortho(-4.0f, 4.0f,-4.0f, 4.0f, -4.0f, 4.0f), "proj");
-	
-	
 }
 
 void Scene::frame(void)

@@ -75,7 +75,7 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 
 	//koniec zadania drugiego.
 	glUseProgram(shaderProgram);
-	//delete[] vertices; 
+	delete[] vertices; 
 	return true;
 }
 
