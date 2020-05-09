@@ -22,7 +22,7 @@ void Scene::updateTimers()
 void Scene::drawVertieces()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glDrawArrays(GL_LINES, 0, vGenerator.Size());
+	glDrawArrays(GL_LINES, 0, vGenerator.Count());
 }
 void Scene::updateGLState()
 {
