@@ -32,7 +32,7 @@ Zadanie 1 (1 pkt):
 	{
 		for (float x = minX; x <= maxX; x += deltaX)
 		{
-			/*if (x == maxX && z < maxZ)
+			if (x == maxX && z < maxZ)
 			{
 				//tylko pionowa linia
 				vertices[p + 0] = x;
@@ -53,28 +53,31 @@ Zadanie 1 (1 pkt):
 
 				p += 14;
 			}
-			else if ((z == maxZ && x < maxX))
+			else if (z == maxZ /*&& x < maxX*/)
 			{
-				//tylko pozioma linia
-				vertices[p + 0] = x;
-				vertices[p + 1] = 0;
-				vertices[p + 2] = z;
-				vertices[p + 3] = 1;
-				vertices[p + 4] = 1;
-				vertices[p + 5] = 1;
-				vertices[p + 6] = 1;
+				if (x != maxX)
+				{
+					//tylko pozioma linia
+					vertices[p + 0] = x;
+					vertices[p + 1] = 0;
+					vertices[p + 2] = z;
+					vertices[p + 3] = 1;
+					vertices[p + 4] = 1;
+					vertices[p + 5] = 1;
+					vertices[p + 6] = 1;
 
-				vertices[p + 7] = x + deltaX;
-				vertices[p + 8] = 0;
-				vertices[p + 9] = z;
-				vertices[p + 10] = 1;
-				vertices[p + 11] = 1;
-				vertices[p + 12] = 1;
-				vertices[p + 13] = 1;
+					vertices[p + 7] = x + deltaX;
+					vertices[p + 8] = 0;
+					vertices[p + 9] = z;
+					vertices[p + 10] = 1;
+					vertices[p + 11] = 1;
+					vertices[p + 12] = 1;
+					vertices[p + 13] = 1;
 
-				p += 14;
+					p += 14;
+				}
 			}
-			else*/
+			else
 			{
 				vertices[p + 0] = x;
 				vertices[p + 1] = 0;
