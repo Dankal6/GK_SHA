@@ -71,11 +71,11 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 	glEnableVertexAttribArray(0);
 	//color attribute
 	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(3 *sizeof(float)));
-	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(1);
 
 	//koniec zadania drugiego.
 	glUseProgram(shaderProgram);
-	delete[] vertices;
+	//delete[] vertices; 
 	return true;
 }
 

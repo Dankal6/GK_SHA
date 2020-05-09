@@ -6,6 +6,8 @@
 
 float* VertexGenerator::generateVertieces()
 {
+
+
 	/*
 Zadanie 1 (1 pkt):
 	- zaimplementowaæ metodê, która polega na stworzeniu regularnej siatki wierzcho³ków
@@ -21,6 +23,10 @@ Zadanie 1 (1 pkt):
 	int dim = 7;							//dim = 7 ( 3 pozycja, 4 kolor )
 	int size = Nx * Nz;						//iloœæ wierzcho³ków
 	int count = size * dim;					//rozmiar tablicy
+
+	this->size = size;
+	this->count = count;
+	this->dim = dim;
 
 	float* vertices = new float[count];
 
@@ -45,7 +51,6 @@ Zadanie 1 (1 pkt):
 	//glDrawArrays(GL_LINES)
 	//glBufferData();
 	return vertices;
-
 }
 
 VertexGenerator::VertexGenerator()
