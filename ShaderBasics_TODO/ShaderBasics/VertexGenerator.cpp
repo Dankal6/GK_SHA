@@ -28,83 +28,16 @@ Zadanie 1 (1 pkt):
 	{
 		for (float x = minX; x <= maxX; x += deltaX)
 		{
-			if (x == maxX && z < maxZ)
 			{
-				//tylko pionowa linia
-				vertices[p + 0] = x;
-				vertices[p + 1] = 0;
-				vertices[p + 2] = z;
-				vertices[p + 3] = 1;
-				vertices[p + 4] = 1;
-				vertices[p + 5] = 1;
-				vertices[p + 6] = 1;
-
-				vertices[p + 7] = x;
-				vertices[p + 8] = 0;
-				vertices[p + 9] = z + deltaZ;
-				vertices[p + 10] = 1;
-				vertices[p + 11] = 1;
-				vertices[p + 12] = 1;
-				vertices[p + 13] = 1;
-
-				p += 14;
-			}
-			else if ((z == maxZ && x < maxX))
-			{
-				//tylko pozioma linia
-				vertices[p + 0] = x;
-				vertices[p + 1] = 0;
-				vertices[p + 2] = z;
-				vertices[p + 3] = 1;
-				vertices[p + 4] = 1;
-				vertices[p + 5] = 1;
-				vertices[p + 6] = 1;
-
-				vertices[p + 7] = x + deltaX;
-				vertices[p + 8] = 0;
-				vertices[p + 9] = z;
-				vertices[p + 10] = 1;
-				vertices[p + 11] = 1;
-				vertices[p + 12] = 1;
-				vertices[p + 13] = 1;
-
-				p += 14;
-			}
-			else
-			{
-				vertices[p + 0] = x;
-				vertices[p + 1] = 0;
-				vertices[p + 2] = z;
-				vertices[p + 3] = 1;
-				vertices[p + 4] = 1;
-				vertices[p + 5] = 1;
-				vertices[p + 6] = 1;
-
-				vertices[p + 7] = x + deltaX;
-				vertices[p + 8] = 0;
-				vertices[p + 9] = z;
-				vertices[p + 10] = 1;
-				vertices[p + 11] = 1;
-				vertices[p + 12] = 1;
-				vertices[p + 13] = 1;
-
-				vertices[p + 14] = x;
-				vertices[p + 15] = 0;
-				vertices[p + 16] = z;
-				vertices[p + 17] = 1;
-				vertices[p + 18] = 1;
-				vertices[p + 19] = 1;
-				vertices[p + 20] = 1;
-
 				vertices[p + 21] = x;
 				vertices[p + 22] = 0;
-				vertices[p + 23] = z + deltaZ;
+				vertices[p + 23] = z;
 				vertices[p + 24] = 1;
 				vertices[p + 25] = 1;
 				vertices[p + 26] = 1;
 				vertices[p + 27] = 1;
 
-				p += 28;
+				p += 7;
 			}
 		}
 	}
