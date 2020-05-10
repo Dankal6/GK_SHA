@@ -50,7 +50,7 @@ void Scene::init()
 		// 1:34:00
 		*/
 	
-	program.addMatrix4x4f(glm::perspective(45.0f, (float)1200/(float)600, 0.1f, 10.0f), "proj");
+	program.addMatrix4x4f(glm::perspective(45.0f, (float)1920/(float)1080, 0.1f, 10.0f), "proj");
 
 	//program.addMatrix4x4f(glm::ortho(-4.0f, 4.0f,-4.0f, 4.0f, -4.0f, 4.0f), "proj");
 }
@@ -58,6 +58,13 @@ void Scene::init()
 void Scene::frame(void)
 {
 	updateTimers();
+	/*
+	Zadanie 4b.(0.5pkt) Dodaæ animacjê kamery (zmiana parametrów funkcji lookAt() w zale¿noœci od czasu).
+	 Czas dostêpny jest poprzez zmienne prywatne - dT - od ostatniej klatki, wT - od pocz¹tku.
+	 Aktualizacja czasu - metoda updateTimers();
+	*/
+
+	//animacja kamery
 	program.addMatrix4x4f(glm::lookAt(glm::vec3(changeX, changeY, 3.0f),
 		glm::vec3(0.0f, 0.0f, 0.0f),
 		glm::vec3(0.5f, 1.0f, 0.0f))
@@ -82,15 +89,11 @@ void Scene::frame(void)
 		goRight = true;
 	}
 
+	//dodanie zmiennej typu float do shadera - dynamiczny kolor 
 	float colorChange = ((changeX + 5) / 10);
 	program.addFloat(colorChange, "colorChange");
-	std::cout << colorChange << std::endl;
 	
-	/*
-		Zadanie 4b.(0.5pkt) Dodaæ animacjê kamery (zmiana parametrów funkcji lookAt() w zale¿noœci od czasu).
-		 Czas dostêpny jest poprzez zmienne prywatne - dT - od ostatniej klatki, wT - od pocz¹tku.
-		 Aktualizacja czasu - metoda updateTimers();
-	*/
+
 	drawVertieces();
 	updateGLState();
 }

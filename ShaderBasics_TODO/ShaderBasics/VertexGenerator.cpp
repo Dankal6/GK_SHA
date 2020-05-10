@@ -30,7 +30,12 @@ Zadanie 1 (1 pkt):
 	int size = Nx * Nz;						//iloœæ wierzcho³ków (prezentacja)
 	int count = size * dim;					//rozmiar tablicy (prezentacja)
 
-	int tabSize = (Nx - 1) * (Nz - 1) * 28 + ((Nx - 1) * 14 + (Nz - 1) * 14);	//prawdziwy rozmiar tablicy
+	/*
+		rzeczywisty rozmiar tablicy i liczba wierzcho³ków: 
+		(Nx - 1) * (Nz - 1) - liczba kszta³tów "L" w siatce, obejmuj¹ca w sobie 4 punkty (st¹d *4), które posiadaj¹ po 7 w³aœciwoœci (dim), st¹d *28
+		(Nx - 1) oraz (Nz - 1) - liczba pojedynczych linii w siatce, poziomych lub pionowych, które obejmuj¹ w sobie po 2 punkty (st¹d *2), ka¿dy z nich po 7 w³aœciwoœci (dim), st¹d * 14
+	*/
+	int tabSize = (Nx - 1) * (Nz - 1) * 28 + ((Nx - 1) * 14 + (Nz - 1) * 14);	//rzeczywisty rozmiar tablicy
 	int newCount = (Nx - 1) * (Nz - 1) * 4 + ((Nx - 1) * 2 + (Nz - 1) * 2);		//iloœæ wierzcho³ków do narysowania
 	float* vertices = new float[tabSize];
 
@@ -82,6 +87,7 @@ Zadanie 1 (1 pkt):
 			}
 			else if (!cmpf(z, maxZ) && !cmpf(x, maxX))
 			{
+				//kszta³t "L"
 				vertices[p + 0] = x;
 				vertices[p + 1] = 0.0f;
 				vertices[p + 2] = z;
@@ -119,22 +125,19 @@ Zadanie 1 (1 pkt):
 		}
 	}
 
-	//this->size = tabSize;
 	this->size = tabSize;
-	//this->count = count;
 	this->count = newCount;
 	this->dim = dim;
 
-	//glDrawArrays(GL_LINES)
-	//glBufferData();
+	/* DEBUG
 	for (int i = 0; i < tabSize; i+=7)
 	{
-		/*if (vertices[i] > (-0.000001f) && vertices[i] < (0.000001f))
+		if (vertices[i] > (-0.000001f) && vertices[i] < (0.000001f))
 		{
 			vertices[i] = 0.0f;
-		}*/
-		//std::cout << std::endl << vertices[i] << "\t" << vertices[i + 1] << "\t" << vertices[i+2];
-	}
+		}
+		std::cout << std::endl << vertices[i] << "\t" << vertices[i + 1] << "\t" << vertices[i+2];
+	}*/
 	return vertices;
 }
 

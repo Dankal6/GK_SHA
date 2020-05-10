@@ -18,12 +18,12 @@ std::string VertexShader::Source()
 		"uniform float colorChange;\n"
 		"void main()\n"
 		"{\n"
-		"   gl_Position = proj*view*vec4(aPos.x, aPos.y+aPos.z, aPos.z, 1.0);\n"
+		"   gl_Position = proj*view*vec4( aPos.x ,  aPos.y+aPos.z *2*cos(aPos.z) * sin(aPos.x) + cos(aPos.y) ,  aPos.z * 2 * sin(aPos.z) * sin(aPos.x)  ,  1.0);\n" 
 		"	col= vec4(colorChange, aCol.x * colorChange, 0.4 + (aCol.y * aCol.x * colorChange) , 1.0);\n"
 		"}\0";
 }	
-	//vec4(aCol.x * colorChange, aCol.z + aPos.y, aCol.z + (aPos.z*colorChange), 0.1)
-	//
+	//dziwne cos - gl_Position = proj*view*vec4( aPos.x ,  aPos.y+aPos.z *2*cos(aPos.z) * sin(aPos.x) ,  aPos.z * 2 * sin(aPos.z) * sin(aPos.x)  ,  1.0);\n" 
+	//wyjsciowa siatka - gl_Position = proj*view*vec4(aPos.x, aPos.y+aPos.z, aPos.z, 1.0);\n"
 
 VertexShader::VertexShader()
 {

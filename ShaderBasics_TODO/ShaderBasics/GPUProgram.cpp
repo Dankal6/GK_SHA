@@ -63,7 +63,8 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 	*/
 	float* vertices = vGen.generateVertieces();
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);		//sam doda³em na podstawie instrukcji
-	double n = vGen.Size();	//n - iloœæ wierzcho³ków
+
+	int n = vGen.Size();					//n - iloœæ wierzcho³ków
 
 
 	glBufferData(GL_ARRAY_BUFFER, 7 * n * sizeof(float), vertices, GL_STATIC_DRAW);
