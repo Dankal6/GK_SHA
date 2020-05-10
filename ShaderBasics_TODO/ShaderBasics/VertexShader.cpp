@@ -15,14 +15,15 @@ std::string VertexShader::Source()
 		"out vec4 col;\n"
 		"uniform mat4 proj;\n"
 		"uniform mat4 view;\n"
+		"uniform float colorChange;\n"
 		"void main()\n"
 		"{\n"
 		"   gl_Position = proj*view*vec4(aPos.x, aPos.y+aPos.z, aPos.z, 1.0);\n"
-		"	col=aCol;\n"
+		"	col= vec4(colorChange, aCol.x * colorChange, 0.4 + (aCol.y * aCol.x * colorChange) , 1.0);\n"
 		"}\0";
 }	
-	//view*
-	//col=vec4(1,0.5+aPos.z/12.56, 0,1);\n"
+	//vec4(aCol.x * colorChange, aCol.z + aPos.y, aCol.z + (aPos.z*colorChange), 0.1)
+	//
 
 VertexShader::VertexShader()
 {

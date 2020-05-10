@@ -81,6 +81,10 @@ void Scene::frame(void)
 	{
 		goRight = true;
 	}
+
+	float colorChange = ((changeX + 5) / 10);
+	program.addFloat(colorChange, "colorChange");
+	std::cout << colorChange << std::endl;
 	
 	/*
 		Zadanie 4b.(0.5pkt) Dodaæ animacjê kamery (zmiana parametrów funkcji lookAt() w zale¿noœci od czasu).

@@ -20,8 +20,8 @@ Zadanie 1 (1 pkt):
 	  y ustawiæ na 0. Wierzcho³ek ma mieæ dwa atrybuty: pozycjê (3D) i kolor (RGBA).
 	  Ustawiæ odpowiednie wartoœci: size (iloœæ wierzcho³ków), dim - wymiarowoœæ wierzcho³ka, count - size*dim
 */
-	float	minX = -0.8f, maxX = 0.8f, deltaX = 0.2f,
-			minZ = -0.8f, maxZ = 0.8f, deltaZ = 0.2f;
+	float	minX = -1.0f, maxX = 1.0f, deltaX = 0.2f,
+			minZ = -1.0f, maxZ = 1.0f, deltaZ = 0.2f;
 	int p = 0;
 
 	int Nx = (maxX - minX) / deltaX + 1;	//iloœæ wierzcho³ków na wspó³rzêdnej x
