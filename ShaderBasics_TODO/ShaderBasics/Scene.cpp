@@ -4,6 +4,11 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <GL/glew.h>
 #include <GL/glut.h>
+
+float changeX = 0.0f;
+float changeY = 0.0f;
+bool goRight = true;
+
 void Scene::updateTimers()
 {
 	std::chrono::system_clock::time_point tCurr = std::chrono::system_clock::now();
@@ -22,7 +27,8 @@ void Scene::updateTimers()
 void Scene::drawVertieces()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
-	glDrawArrays(GL_LINES, 0, vGenerator.Count());
+	int count = vGenerator.Count();
+	glDrawArrays(GL_LINES, 0, count);
 }
 void Scene::updateGLState()
 {
@@ -41,17 +47,40 @@ void Scene::init()
 	/*
 		Zadanie 4a.(0.5pkt) Zamieniæ rzutowanie ortogonalne na pespektywiczne za pomoc¹ funkcji znajduj¹cych siê w komentarzu.
 		Zmodyfikowaæ shader wierzcho³ków tak aby przyjmowa³ macierz "view" jako zmienn¹ uniform wejœciow¹.
-
+		// 1:34:00
 		*/
 	
-	//program.addMatrix4x4f(glm::perspective(), "proj");
-	//program.addMatrix4x4f(glm::lookAt(eye), "view");
-	program.addMatrix4x4f(glm::ortho(-4.0f, 4.0f,-4.0f, 4.0f, -4.0f, 4.0f), "proj");
+	program.addMatrix4x4f(glm::perspective(45.0f, (float)1200/(float)600, 0.1f, 10.0f), "proj");
+
+	//program.addMatrix4x4f(glm::ortho(-4.0f, 4.0f,-4.0f, 4.0f, -4.0f, 4.0f), "proj");
 }
 
 void Scene::frame(void)
 {
 	updateTimers();
+	program.addMatrix4x4f(glm::lookAt(glm::vec3(changeX, changeY, 3.0f),
+		glm::vec3(0.0f, 0.0f, 0.0f),
+		glm::vec3(0.5f, 1.0f, 0.0f))
+		, "view");
+
+	if (goRight == true && changeX < 5.0f)
+	{
+		changeX += dT;
+		changeY += dT;
+	}
+	else if (changeX > 5.0f && goRight == true)
+	{
+		goRight = false;
+	}
+	else if (goRight == false && changeX > -5.0f)
+	{
+		changeX -= dT;
+		changeY -= dT;
+	}
+	else if (changeX < -5.0f && goRight ==false)
+	{
+		goRight = true;
+	}
 	
 	/*
 		Zadanie 4b.(0.5pkt) Dodaæ animacjê kamery (zmiana parametrów funkcji lookAt() w zale¿noœci od czasu).

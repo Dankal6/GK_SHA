@@ -53,7 +53,7 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
 	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);		//sam doda³em na podstawie instrukcji
+
 	// bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
 
 	/**Zadanie 2 (1 pkt):
@@ -62,7 +62,8 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 		  je do VBO i VAO.
 	*/
 	float* vertices = vGen.generateVertieces();
-	int n = vGen.Size();	//n - iloœæ wierzcho³ków
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);		//sam doda³em na podstawie instrukcji
+	double n = vGen.Size();	//n - iloœæ wierzcho³ków
 
 
 	glBufferData(GL_ARRAY_BUFFER, 7 * n * sizeof(float), vertices, GL_STATIC_DRAW);

@@ -14,12 +14,15 @@ std::string VertexShader::Source()
 		"layout (location = 1) in vec4 aCol;\n"
 		"out vec4 col;\n"
 		"uniform mat4 proj;\n"
+		"uniform mat4 view;\n"
 		"void main()\n"
 		"{\n"
-		"   gl_Position = vec4(aPos.x, aPos.y+aPos.z, aPos.z, 1.0);\n"
-		"	col=vec4(1,0.5+aPos.z/12.56, 0,1);\n"
+		"   gl_Position = proj*view*vec4(aPos.x, aPos.y+aPos.z, aPos.z, 1.0);\n"
+		"	col=aCol;\n"
 		"}\0";
-}	//proj*view*
+}	
+	//view*
+	//col=vec4(1,0.5+aPos.z/12.56, 0,1);\n"
 
 VertexShader::VertexShader()
 {
