@@ -67,7 +67,7 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 	int n = vGen.Size();					//n - iloœæ wierzcho³ków (440) * atrybuty (7) = 3080
 
 
-	glBufferData(GL_ARRAY_BUFFER, 7 * n * sizeof(float), vertices, GL_STATIC_DRAW);	//³aduje dane (vertices) do ostatniego z³¹czonego bufora poleceniem glBindBuffer
+	glBufferData(GL_ARRAY_BUFFER, n * sizeof(float), vertices, GL_STATIC_DRAW);	//³aduje dane (vertices) do ostatniego z³¹czonego bufora poleceniem glBindBuffer
 	//vertex attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)0);	//ustalaj¹ca gdzie w za³adowanym buforze (ostatnim) znajduj¹ siê dane dotycz¹ce wspó³rzêdnych
 	glEnableVertexAttribArray(0);	//aktywuje tablicê o zadanym indeksie (pierwszy parametr glVertexAttribPointer)
