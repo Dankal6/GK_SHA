@@ -51,6 +51,7 @@ void Scene::init()
 		*/
 	
 	program.addMatrix4x4f(glm::perspective(45.0f, (float)1920/(float)1080, 0.1f, 10.0f), "proj");
+	//fovy, aspectRatio, near, far
 
 	//program.addMatrix4x4f(glm::ortho(-4.0f, 4.0f,-4.0f, 4.0f, -4.0f, 4.0f), "proj");
 }
@@ -65,10 +66,12 @@ void Scene::frame(void)
 	*/
 
 	//animacja kamery
-	program.addMatrix4x4f(glm::lookAt(glm::vec3(changeX, changeY, 3.0f),
+	program.addMatrix4x4f(glm::lookAt(
+		glm::vec3(changeX, changeY, 3.0f),
 		glm::vec3(0.0f, 0.0f, 0.0f),
 		glm::vec3(0.5f, 1.0f, 0.0f))
 		, "view");
+	//eye, center, up
 
 	if (goRight == true && changeX < 5.0f)
 	{

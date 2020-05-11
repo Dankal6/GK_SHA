@@ -35,8 +35,8 @@ Zadanie 1 (1 pkt):
 		(Nx - 1) * (Nz - 1) - liczba kszta³tów "L" w siatce, obejmuj¹ca w sobie 4 punkty (st¹d *4), które posiadaj¹ po 7 w³aœciwoœci (dim), st¹d *28
 		(Nx - 1) oraz (Nz - 1) - liczba pojedynczych linii w siatce, poziomych lub pionowych, które obejmuj¹ w sobie po 2 punkty (st¹d *2), ka¿dy z nich po 7 w³aœciwoœci (dim), st¹d * 14
 	*/
-	int tabSize = (Nx - 1) * (Nz - 1) * 28 + ((Nx - 1) * 14 + (Nz - 1) * 14);	//rzeczywisty rozmiar tablicy
-	int newCount = (Nx - 1) * (Nz - 1) * 4 + ((Nx - 1) * 2 + (Nz - 1) * 2);		//iloœæ wierzcho³ków do narysowania
+	int tabSize = (Nx - 1) * (Nz - 1) * 28 + ((Nx - 1) * 28 + (Nz - 1) * 28);	//rzeczywisty rozmiar tablicy
+	int newCount = (Nx - 1) * (Nz - 1) * 4 + ((Nx - 1) * 4 + (Nz - 1) * 4);		//iloœæ wierzcho³ków do narysowania
 	float* vertices = new float[tabSize];
 
 	for (float z = minZ; z <= maxZ; z += deltaZ)

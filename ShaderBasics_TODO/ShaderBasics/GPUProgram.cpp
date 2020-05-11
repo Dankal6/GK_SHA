@@ -62,18 +62,18 @@ bool GPUProgram::bindVertieces(VertexGenerator& vGen)
 		  je do VBO i VAO.
 	*/
 	float* vertices = vGen.generateVertieces();
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);		//sam doda³em na podstawie instrukcji
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);		//funkcja ³¹cz¹ca utworzony wczeœniej identyfikator bufora VBO z rzeczywistym buforem w pamiêcie RAM GPU.
 
-	int n = vGen.Size();					//n - iloœæ wierzcho³ków
+	int n = vGen.Size();					//n - iloœæ wierzcho³ków (440) * atrybuty (7) = 3080
 
 
-	glBufferData(GL_ARRAY_BUFFER, 7 * n * sizeof(float), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 7 * n * sizeof(float), vertices, GL_STATIC_DRAW);	//³aduje dane (vertices) do ostatniego z³¹czonego bufora poleceniem glBindBuffer
 	//vertex attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)0);	//ustalaj¹ca gdzie w za³adowanym buforze (ostatnim) znajduj¹ siê dane dotycz¹ce wspó³rzêdnych
+	glEnableVertexAttribArray(0);	//aktywuje tablicê o zadanym indeksie (pierwszy parametr glVertexAttribPointer)
 	//color attribute
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(3 *sizeof(float)));
-	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(3 *sizeof(float)));	//ustalaj¹ca gdzie w za³adowanym buforze (ostatnim) znajduj¹ siê dane dotycz¹ce RGBA
+	glEnableVertexAttribArray(1);	//aktywuje tablicê o zadanym indeksie (pierwszy parametr glVertexAttribPointer)
 
 	//koniec zadania drugiego.
 	glUseProgram(shaderProgram);
